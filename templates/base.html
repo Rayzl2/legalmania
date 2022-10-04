@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<title>LegalMania</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/main.css') }}">
+	<style>
+	@font-face {
+	    font-family: Constan;
+	    src:url(fonts/constan.ttf);
+	}
+	@font-face {
+	    font-family: MainText;
+	    src:url(fonts/FOGLIHTENNO06.OTF);
+	}
+
+	body{
+	    font-family: Constan;
+	}
+	.title h1{
+		font-family: MainText;
+	}
+	</style>
+</head>
+<body>
+	{% block header %}
+	<header class="header" id="header-content">
+		<div class="container" id="container">
+			<div class="hamburger-menu">
+		    <input id="menu__toggle" type="checkbox" />
+		    <label class="menu__btn" for="menu__toggle">
+		      <span></span>
+		    </label>
+
+		    <ul class="menu__box">
+		    	<li><a class="menu__item" href="/">Главная</a></li>
+		      <li><a class="menu__item" href="/about">О компании</a></li>
+					<li><a class="menu__item" href="/team">Команда</a></li>
+					<li><a class="menu__item" href="/services">Услуги</a></li>
+					<li><a class="menu__item" href="/experience">Наш опыт</a></li>
+					<li><a class="menu__item" href="/news">Новости</a></li>
+					<li><a class="menu__item" href="/contact">Контакты</a></li>
+		    </ul>
+		  	</div>
+			<div class="nav">
+				<a href="/"><img src="{{url_for('static', filename='img/logo.png')}}" alt="logo" height="auto" width="75%"></a>
+				<ul class="menu" id="menu">
+					<li>
+						<a href="/about">
+							О компании
+						</a>
+					</li>
+					<li>
+						<a href="/team">
+							Команда
+						</a>
+					</li>
+					<li>
+						<a href="/services">
+							Услуги
+						</a>
+					</li>
+					<li>
+						<a href="/experience">
+							Наш опыт
+						</a>
+					</li>
+					<li>
+						<a href="/news">
+							Новости
+						</a>
+					</li>
+					<li>
+						<a href="/contact">
+							Контакты
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	{% endblock %}
+	{% block content %} {% endblock %}
+</body>

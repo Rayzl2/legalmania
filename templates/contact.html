@@ -1,0 +1,59 @@
+
+{% extends "base.html" %}
+{% block content %}
+	<section class="page-blue" id="page-blue">
+		<div class="container" id="container">
+			<div class="title" style="padding-bottom: 50px; padding-top: 100px;">
+				<span style="font-size: 36px; color: #1b4d6d">Наши контакты</span>
+			</div>
+			<div style="display: flex; flex-wrap:  wrap; ">
+			<div class="contacts" id="contacts" style="padding-bottom: 30px;">
+				<div class="info-block" id="info-block">
+					<ul style="display: flex; padding-bottom: 30px">
+						<li>
+							<img src="{{url_for('static', filename='img/icon-geo.png')}}" alt="" height="58px">
+						</li>
+						<li style="font-size: 24px; max-width: 500px; color: #1f1b1a; font-weight: 300;">
+							123060, г. Москва, ул. Маршала Вершинина, 
+							дом 8, корп. 2 (м. Октябрьское Поле)
+						</li>
+					</ul>
+				</div>
+				<div class="info-block" id="info-block">
+					<ul style="display: flex; padding-bottom: 5px">
+						<li>
+							<img src="{{url_for('static', filename='img/icon-phone.png')}}" alt="" height="58px">
+						</li>
+						<li style="font-size: 24px; max-width: 500px; color: #1f1b1a; font-weight: 300;">
+							тел. <a href="tel:74952271979" style="color: #1f1b1a">+7-495-227-1979</a>, <a style="color: #1f1b1a" href="tel:89852271979"> +7-985-227-19-79</a>
+						</li>
+					</ul>
+				</div>
+				<div class="info-block" id="info-block">
+					<ul style="display: flex; padding-bottom: 50px">
+						<li>
+							<img src="{{url_for('static', filename='img/icon-email.png')}}" alt="" height="58px">
+						</li>
+						<li style="font-size: 24px; max-width: 500px; color: #1f1b1a; font-weight: 300;">
+							e-mail:<a href="mailto:info@legalmania.ru" style="color: #1f1b1a">info@legalmania.ru</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="map" style="margin-left: auto;">
+				<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A125b374e00e2adc22ee3c1e15ddcc30f814b2a54cecfd4a5d31741bc442f3234&amp;source=constructor" width="400" height="250" frameborder="0"></iframe>
+			</div>
+			</div>
+			<span style="font-size: 32px; color: #1b4d6d; padding-top: 50px;">Оставить заявку</span>
+				<form action="/send" method="POST" class="btn-case" style="display: flex;padding-top: 20px; padding-bottom: 40px;">
+					<input type="text" placeholder="ФИО" name="name"  class="input-contact name" style="text-align: center; font-size: 14px; border: #d1d1d1;  z-index: ; box-shadow:0 0 35px #ffc79b;">
+					
+					<input type="tel" placeholder="Телефон" class="input-contact tel"  pattern="[0-9]{11}" name="tel" style="text-align: center; font-size: 14px; z-index: 2; border: #d1d1d1;" required>
+					<input class="question" type="text" placeholder="Ваш вопрос" class="input-contact question"  name="question" style="text-align: center; font-size: 14px; border:  none; box-shadow:0 0 35px #ffc79b; margin-right: 15px; z-index: 1; ">
+
+					<button class="btn-get-contact" value="submit" style="border: none;">Получить консультацию</button>
+				</form>
+				<style></style>
+		</div>
+	</section>
+{% endblock %}

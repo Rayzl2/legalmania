@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<title>LegalMania</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/main.css') }}">
+	<style>
+	@font-face {
+	    font-family: Constan;
+	    src:url(fonts/constan.ttf);
+	}
+	@font-face {
+	    font-family: MainText;
+	    src:url(fonts/FOGLIHTENNO06.OTF);
+	}
+
+	body{
+	    font-family: Constan;
+	}
+	input{
+		font-family: Constan;
+	}
+	.title h1{
+		font-family: MainText;
+	}
+	</style>
+</head>
+<body>
+	<header class="header" id="header-contact">
+		<div class="container" id="container">
+			<div class="hamburger-menu">
+		    <input id="menu__toggle" type="checkbox" />
+		    <label class="menu__btn" for="menu__toggle">
+		      <span></span>
+		    </label>
+
+		    <ul class="menu__box">
+		      <li><a class="menu__item" href="/about">О компании</a></li>
+					<li><a class="menu__item" href="/team">Команда</a></li>
+					<li><a class="menu__item" href="/services">Услуги</a></li>
+					<li><a class="menu__item" href="/experience">Наш опыт</a></li>
+					<li><a class="menu__item" href="/news">Новости</a></li>
+					<li><a class="menu__item" href="/contact">Контакты</a></li>
+		    </ul>
+		  	</div>
+			<div class="nav">
+				<a href="/"><img src="{{url_for('static', filename='img/logo.png')}}" alt="logo" height="auto" width="75%"></a>
+				<ul class="menu" id="menu">
+					<li>
+						<a href="/about">
+							О компании
+						</a>
+					</li>
+					<li>
+						<a href="/team">
+							Команда
+						</a>
+					</li>
+					<li>
+						<a href="/services">
+							Услуги
+						</a>
+					</li>
+					<li>
+						<a href="/experience">
+							Наш опыт
+						</a>
+					</li>
+					<li>
+						<a href="/news">
+							Новости
+						</a>
+					</li>
+					<li>
+						<a href="/contact">
+							Контакты
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="title" style="padding-top: 100px; padding-bottom: 20px;">
+				<span style="font-size: 36px">О компании - юриспруденция со вкусом</span>
+			</div>
+				<p class="about-text article-description" style=" color: #f3f3f3; font-size: 13px; padding-bottom: 70px;"><b>ЛигалМания</b> – команда адвокатов единомышленников из ведущих юридических компаний страны, крупных инхаус-департаментов, судебных и налоговых органов, уникальный опыт которых позволил сформировать индивидуальный подход в оказании квалифицированной юридической помощи организациям и частным клиентам. 
+Основной принцип деятельности компании основан на образе жизни (мания правом), объединяющий не только профессиональные качества, но и элементы творчества и науки, что позволяет всегда найти нестандартные и креативные решения в самых сложных делах.
+Команда ЛигалМания обладает внушительным успешным опытом работы с российскими и иностранными компаниями, как на территории России, так и за рубежом, а полученная экспертиза и стандарты работы, оставят приятное послевкусие и послужат залогом долгосрочного сотрудничества.
+ЛигалМания - как самые совершенные рецептурные очки, с помощью которых клиенты могут взглянуть на свои проблемы под иным ракурсом, довериться искусству адвокатуры и вскоре почувствовать результаты на себе и бизнесе.
+</p>
+
+			<span style="font-size: 32px; color: #fff; padding-top: 70px; padding-bottom: 50px">Оставить заявку</span>
+				<form action="/send" method="POST" class="btn-case" style="display: flex;padding-top: 20px; padding-bottom: 40px;">
+					<input type="text" placeholder="ФИО" name="name"  class="input-contact name" style="text-align: center; font-size: 14px; border: 1px solid white;">
+					
+					<input type="tel" placeholder="Телефон" class="input-contact tel"  pattern="[0-9]{11}" name="tel" style="text-align: center; font-size: 14px; border: 1px solid white;" required>
+					<input type="text" placeholder="Ваш вопрос" class="input-contact question"  name="question" style="text-align: center; font-size: 14px; border: 1px solid white; margin-right: 15px">
+
+					<button class="btn-get-contact" value="submit" style="border: none;">Получить консультацию</button>
+				</form>
+			</div>
+			<style>
+				#img-block
+				{
+					box-shadow: -10px 10px 60px rgba(0, 0, 0, .35);
+					margin-right: 35px;
+					margin-bottom: 25px;
+				}
+				.logo-block
+				{
+					max-width: 1500px;
+				}
+			</style>
+		</div>
+	</header>
+</body>
+</html>

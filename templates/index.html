@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<title>LegalMania</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/main.css') }}">
+	<style>
+	@font-face {
+	    font-family: Constan;
+	    src:url(fonts/constan.ttf);
+	}
+	@font-face {
+	    font-family: MainText;
+	    src:url(fonts/FOGLIHTENNO06.OTF);
+	}
+
+	body{
+	    font-family: Constan;
+	}
+	.title h1{
+		font-family: MainText;
+	}
+	</style>
+</head>
+<body>
+	<header class="header" id="header">
+		<div class="container" id="container">
+			<div class="hamburger-menu">
+		    <input id="menu__toggle" type="checkbox" />
+		    <label class="menu__btn" for="menu__toggle">
+		      <span></span>
+		    </label>
+
+		    <ul class="menu__box">
+		      <li><a class="menu__item" href="/about">О компании</a></li>
+					<li><a class="menu__item" href="/team">Команда</a></li>
+					<li><a class="menu__item" href="/services">Услуги</a></li>
+					<li><a class="menu__item" href="/experience">Наш опыт</a></li>
+					<li><a class="menu__item" href="/news"> Новости</a></li>
+					<li><a class="menu__item" href="/contact">Контакты</a></li>
+		    </ul>
+		  	</div>
+			<div class="nav">
+				<img src="{{url_for('static', filename='img/logo.png')}}" alt="logo" width="13%" height="auto">
+				<ul class="menu" id="menu">
+					<li>
+						<a href="/about">
+							О компании
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Команда
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Услуги
+						</a>
+					</li>
+					<li>
+						<a href="experience.html">
+							Наш опыт
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Новости
+						</a>
+					</li>
+					<li>
+						<a href="contact.html">
+							Контакты
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="title" id="title">
+				<h2 style="font-size: 18px; padding-bottom: 30px;">Адвокаты для бизнеса</h2>
+				<h1>сила права</h1>
+				<h2>Юридическая помощь в любых ситуациях</h2>
+			</div>
+			<div class="btn-case">
+				<a href="#" class="btn-get">Получить консультацию</a>
+			</div>
+		</div>
+	</header>
+	{% block content %}
+	<header class="header" id="header-contact">
+		<div class="container" id="container">
+			<div class="title" style="padding-top: 100px; padding-bottom: 20px;">
+				<span style="font-size: 36px">О компании - юриспруденция со вкусом</span>
+			</div>
+				<p class="about-text article-description" style=" color: #f3f3f3; font-size: 13px; padding-bottom: 70px;"><b>ЛигалМания</b> – команда адвокатов единомышленников из ведущих юридических компаний страны, крупных инхаус-департаментов, судебных и налоговых органов, уникальный опыт которых позволил сформировать индивидуальный подход в оказании квалифицированной юридической помощи организациям и частным клиентам. 
+Основной принцип деятельности компании основан на образе жизни (мания правом), объединяющий не только профессиональные качества, но и элементы творчества и науки, что позволяет всегда найти нестандартные и креативные решения в самых сложных делах.
+Команда ЛигалМания обладает внушительным успешным опытом работы с российскими и иностранными компаниями, как на территории России, так и за рубежом, а полученная экспертиза и стандарты работы, оставят приятное послевкусие и послужат залогом долгосрочного сотрудничества.
+ЛигалМания - как самые совершенные рецептурные очки, с помощью которых клиенты могут взглянуть на свои проблемы под иным ракурсом, довериться искусству адвокатуры и вскоре почувствовать результаты на себе и бизнесе.
+</p>
+
+			<span style="font-size: 32px; color: #fff; padding-top: 70px; padding-bottom: 50px">Оставить заявку</span>
+				<form action="/send" method="POST" class="btn-case" style="display: flex;padding-top: 20px; padding-bottom: 40px;">
+					<input type="text" placeholder="ФИО" name="name"  class="input-contact name" style="text-align: center; font-size: 14px; border: 1px solid white;">
+					
+					<input type="tel" placeholder="Телефон" class="input-contact tel"  pattern="[0-9]{11}" name="tel" style="text-align: center; font-size: 14px; border: 1px solid white;" required>
+					<input type="text" placeholder="Ваш вопрос" class="input-contact question"  name="question" style="text-align: center; font-size: 14px; border: 1px solid white; margin-right: 15px">
+
+					<button class="btn-get-contact" value="submit" style="border: none;">Получить консультацию</button>
+				</form>
+			</div>
+			<style>
+				#img-block
+				{
+					box-shadow: -10px 10px 60px rgba(0, 0, 0, .35);
+					margin-right: 35px;
+					margin-bottom: 25px;
+				}
+				.logo-block
+				{
+					max-width: 1500px;
+				}
+			</style>
+		</div>
+	</header>
+	<section class="page-team" id="page-team" style="padding-top: 0;">
+		<div class="container" id="container">
+			<div class="title" style="padding-top: 100px; padding-bottom: 20px;">
+				<h4 style="font-size: 44px; color: #6d301b; text-transform: none; padding-bottom: 20px;">Наша команда</h4>
+			</div>
+				<div class="general-block">
+				<div class="article">
+					<div class="left-side" style="margin-top: auto;">
+						<div class="article-title" id="article-title" style="font-size: 16px; color: #781506; padding-top: 30px;">
+								<h3 style="text-transform: none;">Lorem ipsum dolor sit amet</h3>
+							</div>
+							<div class="article-description" id="article-description">
+								<p style="color: #1f1b1a; font-size: 14px;">Lorem ipsum dolor sit amet, 
+								consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+								</p>
+							</div>
+					</div>
+					<div class="right-side" style="margin-left: auto;">
+						<img src="{{url_for('static', filename='img/general-photo.png')}}" alt="" width="560px" style="margin-left: auto;">
+					</div>
+				</div>
+			</div>
+
+
+			
+
+
+			<div class="block-news" id="block-news" style="padding-top: 50px;">
+				<div class="article" id="article">
+					<div class="left-side">
+						<style>
+							.sketch
+							{
+								background: url("{{url_for('static', filename = 'img/anastasia-sketch.png')}}") no-repeat;
+								display: block;
+								height: 400px;
+								width: 270px;
+								margin-left: 100px;
+								transition: all 0.9s ease;
+							}
+							.sketch:hover
+							{
+								width: 270px;
+								background: url("{{url_for('static', filename = 'img/anastasia.png')}}") no-repeat;
+							}
+						</style>
+	
+						<div class="sketch"></div>
+					</div>
+					<div class="right-side" style="margin-left: 40px;">
+						<div class="article-title" id="article-title" style="font-size: 16px; color: #781506; padding-top: 50px;">
+							<h3 style="text-transform: none;">Lorem ipsum dolor sit amet</h3>
+						</div>
+						<div class="article-description" id="article-description">
+							<p style="color: #1f1b1a; font-size: 14px;">Lorem ipsum dolor sit amet, 
+							consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="article" id="article">
+					<div class="left-side" style="margin-left: 40px; padding-top: 30px; text-align: right;">
+						<div class="article-title" id="article-title" style="font-size: 16px; color: #781506; padding-top: 50px; width: 90%;">
+							<h3 style="text-transform: none;">Lorem ipsum dolor sit amet</h3>
+						</div>
+						<div class="article-description" id="article-description">
+							<p style="color: #1f1b1a; font-size: 14px;">Lorem ipsum dolor sit amet, 
+							consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+							</p>
+						</div>
+					</div>
+					<div class="right-side">
+						<div class="sketch1"></div>
+					</div>
+				</div>
+				<div class="article" id="article">
+					<div class="left-side">
+						<style>
+							.sketch2
+							{
+								background: url("{{url_for('static', filename = 'img/aslan-sketch.png')}}") no-repeat;
+								display: block;
+								height: 400px;
+								width: 270px;
+								margin-left: 100px;
+								transition: all 0.9s ease;
+							}
+							.sketch2:hover
+							{
+								width: 300px;
+								background: url("{{url_for('static', filename = 'img/aslan-photo.png')}}") no-repeat;
+							}
+						</style>
+	
+						<div class="sketch2"></div>
+					</div>
+					<div class="right-side" style="margin-left: 40px;">
+						<div class="article-title" id="article-title" style="font-size: 16px; color: #781506; padding-top: 20px;">
+							<h3 style="text-transform: none;">Lorem ipsum dolor sit amet</h3>
+						</div>
+						<div class="article-description" id="article-description">
+							<p style="color: #1f1b1a; font-size: 14px;">Lorem ipsum dolor sit amet, 
+							consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+							</p>
+						</div>
+					</div>
+				</div>
+						<style>
+							.sketch1
+							{
+								background: url("{{url_for('static', filename = 'img/danil-sketch.png')}}") no-repeat;
+								display: block;
+								height: 344px;
+								width: 258px;
+								margin-left: 100px;
+								transition: all 0.9s ease;
+							}
+							.sketch1:hover
+							{
+								width: 300px;
+								background: url("{{url_for('static', filename = 'img/danil-photo.png')}}") no-repeat;
+							}
+						</style>
+	
+			</div>
+		</div>
+	</section>
+	<section class="page-blue" id="page-blue" style="padding: 0;">
+		<div class="container" id="container">
+			<div class="title" style="padding-top: 100px; padding-bottom: 20px;">
+				<h4 style="font-size: 44px; color: #1b4d6d; text-transform: none; padding-bottom: 20px;">Услуги</h4>
+			</div>
+			<div class="nav" id="services-block">
+				<ul style="display: flex; flex-wrap: wrap;" id="services-ul">
+					<li>
+						<div class="service">
+							<div class="icon-service">
+							<img src="{{url_for('static', filename='img/icon-service.png')}}" width="60px" alt="">
+						</div>
+						<div class="title-service" id="title-service">
+							<h3>Арбитражные и судебные разбирательства</h3>
+						</div>
+						</div>
+					</li>
+					<li>
+						<div class="service">
+							<div class="icon-service">
+							<img src="{{url_for('static', filename='img/icon-service.png')}}" width="60px" alt="">
+						</div>
+						<div class="title-service" id="title-service">
+							<h3>Сопровождение банкротных процедур/реструктуризация долга</h3>
+						</div>
+						</div>
+					</li>
+					<li>
+						<div class="service">
+							<div class="icon-service">
+							<img src="{{url_for('static', filename='img/icon-service.png')}}" width="60px" alt="">
+						</div>
+						<div class="title-service" id="title-service">
+							<h3>Защита собственности и активов</h3>
+						</div>
+						</div>
+					</li>
+					<li>
+						<div class="service">
+							<div class="icon-service">
+							<img src="{{url_for('static', filename='img/icon-service.png')}}" width="60px" alt="">
+						</div>
+						<div class="title-service" id="title-service">
+							<h3>Транспорт и логистика</h3>
+						</div>
+						</div>
+					</li>
+					<li>
+						<div class="service">
+							<div class="icon-service">
+							<img src="{{url_for('static', filename='img/icon-service.png')}}" width="60px" alt="">
+						</div>
+						<div class="title-service" id="title-service">
+							<h3>Строительные подряды</h3>
+						</div>
+						</div>
+					</li>
+					<li>
+						<div class="service">
+							<div class="icon-service">
+							<img src="{{url_for('static', filename='img/icon-service.png')}}" width="60px" alt="">
+						</div>
+						<div class="title-service" id="title-service">
+							<h3>Налоговое право </h3>
+						</div>
+						</div>
+					</li>
+					<li>
+						<div class="service">
+							<div class="icon-service">
+							<img src="{{url_for('static', filename='img/icon-service.png')}}" width="60px" alt="">
+						</div>
+						<div class="title-service" id="title-service">
+							<h3>Судебная поддержка банковских организаций</h3>
+						</div>
+						</div>
+					</li>
+					<li>
+						<div class="service">
+							<div class="icon-service">
+							<img src="{{url_for('static', filename='img/icon-service.png')}}" width="60px" alt="">
+						</div>
+						<div class="title-service" id="title-service">
+							<h3>Корпоративное право и M&A (Due Diligence)</h3>
+						</div>
+						</div>
+					</li>
+					<li>
+						<div class="service">
+							<div class="icon-service">
+							<img src="{{url_for('static', filename='img/icon-service.png')}}" width="60px" alt="">
+						</div>
+						<div class="title-service" id="title-service">
+							<h3>Санкции и международный экономический комплаенс </h3>
+						</div>
+						</div>
+					</li>
+					<li>
+						<div class="service">
+							<div class="icon-service">
+							<img src="{{url_for('static', filename='img/icon-service.png')}}" width="60px" alt="">
+						</div>
+						<div class="title-service" id="title-service">
+							<h3>Медиация </h3>
+						</div>
+						</div>
+					</li>
+					<li>
+						<div class="service">
+							<div class="icon-service">
+							<img src="{{url_for('static', filename='img/icon-service.png')}}" width="60px" alt="">
+						</div>
+						<div class="title-service" id="title-service">
+							<h3>Сопровождение частных клиентов </h3>
+						</div>
+						</div>
+					</li>
+					<li>
+						<div class="service">
+							<div class="icon-service">
+							<img src="{{url_for('static', filename='img/icon-service.png')}}" width="60px" alt="">
+						</div>
+						<div class="title-service" id="title-service">
+							<h3>Уголовно-правовая защита</h3>
+						</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section class="page" id="page">
+		<div class="container" id="container">
+			<div class="title" style="padding-top: 100px; padding-bottom: 20px;">
+				<h4 style="font-size: 44px; color: #6d301b; text-transform: none; padding-bottom: 20px;">Нам доверяют</h4>
+				<p style="width: 675px; color: #1f1b1a; font-size: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+			</div>
+			<style>
+				#img-block
+				{
+					box-shadow: 0 0 60px rgba(255, 199, 155, .75);
+					margin-right: 30px;
+					margin-bottom: 25px;
+				}
+				.logo-block
+				{
+					max-width: 1000px;
+				}
+			</style>
+			<div class="logo-block">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+				<img src="img/block-logo.png" id="img-block" alt="">
+
+			</div>
+		</div>
+	</section>
+	<section class="page-orange" id="page-orange" style="padding-top: 0;">
+		<div class="container" id="container">
+			<div class="title" style="padding-top: 100px; padding-bottom: 20px;">
+				<h4 style="font-size: 44px; color: #a4673e; text-transform: none; padding-bottom: 20px;">Новости</h4>
+			</div>
+			<div class="block-news" id="block-news" style="padding-top: 50px;">
+				<div class="article" id="article" style="display: flex;">
+					<div class="left-side">
+						<div class="article-title" id="article-title" style="font-size: 16px; color: #a4673e; padding-top: 30px;">
+							<h3 style="text-transform: none;">Lorem ipsum dolor sit amet</h3>
+						</div>
+						<div class="article-description" id="article-description">
+							<p style="color: #1f1b1a;">Lorem ipsum dolor sit amet, 
+							consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+							</p>
+						</div>
+					</div>
+					<div class="right-side" style="margin-left: auto">
+						<div class="photo-news" style="">
+							<img src="img/photo-news.png" alt="" width="550px" style="-moz-box-shadow:0 0 10px #ffc79b; -webkit-box-shadow:0 0 10px rgba(67, 27, 1, .25); box-shadow:0 0 40px #ffc79b;">
+						</div>
+					</div>
+				</div>
+				<div class="article" id="article" style="display: flex;">
+					<div class="left-side">
+						<div class="article-title" id="article-title" style="font-size: 16px; color: #a4673e; padding-top: 30px;">
+							<h3 style="text-transform: none;">Lorem ipsum dolor sit amet</h3>
+						</div>
+						<div class="article-description" id="article-description">
+							<p style=" color: #1f1b1a; ">Lorem ipsum dolor sit amet, 
+							consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+							</p>
+						</div>
+					</div>
+					<div class="right-side" style="margin-left: auto">
+						<div class="photo-news" style="">
+							<img src="img/photo-news.png" alt="" width="550px" style="-moz-box-shadow:0 0 10px #ffc79b; -webkit-box-shadow:0 0 10px rgba(67, 27, 1, .25); box-shadow:0 0 40px #ffc79b;">
+						</div>
+					</div>
+				</div>
+				<div class="article" id="article" style="display: flex;">
+					<div class="left-side">
+						<div class="article-title" id="article-title" style="font-size: 16px; color: #a4673e; padding-top: 30px;">
+							<h3 style="text-transform: none;">Lorem ipsum dolor sit amet</h3>
+						</div>
+						<div class="article-description" id="article-description">
+							<p style="color: #1f1b1a;">Lorem ipsum dolor sit amet, 
+							consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+							</p>
+						</div>
+					</div>
+					<div class="right-side" style="margin-left: auto">
+						<div class="photo-news" style="">
+							<img src="img/photo-news.png" alt="" width="550px" style="-moz-box-shadow:0 0 10px #ffc79b; -webkit-box-shadow:0 0 10px rgba(67, 27, 1, .25); box-shadow:0 0 40px #ffc79b;">
+						</div>
+					</div>
+				</div>
+				<div class="article" id="article" style="display: flex;">
+					<div class="left-side">
+						<div class="article-title" id="article-title" style="font-size: 16px; color: #a4673e; padding-top: 30px;">
+							<h3 style="text-transform: none;">Lorem ipsum dolor sit amet</h3>
+						</div>
+						<div class="article-description" id="article-description">
+							<p style="color: #1f1b1a; ">Lorem ipsum dolor sit amet, 
+							consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+							</p>
+						</div>
+					</div>
+					<div class="right-side" style="margin-left: auto">
+						<div class="photo-news" style="">
+							<img src="img/photo-news.png" alt="" width="550px" style="-moz-box-shadow:0 0 10px #ffc79b; -webkit-box-shadow:0 0 10px rgba(67, 27, 1, .25); box-shadow:0 0 40px #ffc79b;">
+						</div>
+					</div>
+				</div>
+				<div class="article" id="article" style="display: flex;">
+					<div class="left-side">
+						<div class="article-title" id="article-title" style="font-size: 16px; color: #a4673e; padding-top: 30px;">
+							<h3 style="text-transform: none;">Lorem ipsum dolor sit amet</h3>
+						</div>
+						<div class="article-description" id="article-description">
+							<p style="color: #1f1b1a; ">Lorem ipsum dolor sit amet, 
+							consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+							</p>
+						</div>
+					</div>
+					<div class="right-side" style="margin-left: auto">
+						<div class="photo-news" style="">
+							<img src="img/photo-news.png" alt="" width="550px" style="-moz-box-shadow:0 0 10px #ffc79b; -webkit-box-shadow:0 0 10px rgba(67, 27, 1, .25); box-shadow:0 0 40px #ffc79b;">
+						</div>
+					</div>
+				</div>
+				<div class="article" id="article" style="display: flex;">
+					<div class="left-side">
+						<div class="article-title" id="article-title" style="font-size: 16px; color: #a4673e; padding-top: 30px;">
+							<h3 style="text-transform: none;">Lorem ipsum dolor sit amet</h3>
+						</div>
+						<div class="article-description" id="article-description">
+							<p style="color: #1f1b1a; ">Lorem ipsum dolor sit amet, 
+							consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+							</p>
+						</div>
+					</div>
+					<div class="right-side" style="margin-left: auto">
+						<div class="photo-news" style="">
+							<img src="img/photo-news.png" alt="" width="550px" style="-moz-box-shadow:0 0 10px #ffc79b; -webkit-box-shadow:0 0 10px rgba(67, 27, 1, .25); box-shadow:0 0 40px #ffc79b;">
+						</div>
+					</div>
+				</div>
+				<div class="article" id="article" style="display: flex;">
+					<div class="left-side">
+						<div class="article-title" id="article-title" style="font-size: 16px; color: #a4673e; padding-top: 30px;">
+							<h3 style="text-transform: none;">Lorem ipsum dolor sit amet</h3>
+						</div>
+						<div class="article-description" id="article-description">
+							<p style="color: #1f1b1a; ">Lorem ipsum dolor sit amet, 
+							consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+							</p>
+						</div>
+					</div>
+					<div class="right-side" style="margin-left: auto">
+						<div class="photo-news" style="">
+							<img src="img/photo-news.png" alt="" width="550px" style="-moz-box-shadow:0 0 10px #ffc79b; -webkit-box-shadow:0 0 10px rgba(67, 27, 1, .25); box-shadow:0 0 40px #ffc79b;">
+						</div>
+					</div>
+				</div>
+				<div class="article" id="article" style="display: flex;">
+					<div class="left-side">
+						<div class="article-title" id="article-title" style="font-size: 16px; color: #a4673e; padding-top: 30px;">
+							<h3 style="text-transform: none;">Lorem ipsum dolor sit amet</h3>
+						</div>
+						<div class="article-description" id="article-description">
+							<p style="color: #1f1b1a; ">Lorem ipsum dolor sit amet, 
+							consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+							</p>
+						</div>
+					</div>
+					<div class="right-side" style="margin-left: auto">
+						<div class="photo-news" style="">
+							<img src="img/photo-news.png" alt="" width="550px" style="-moz-box-shadow:0 0 10px #ffc79b; -webkit-box-shadow:0 0 10px rgba(67, 27, 1, .25); box-shadow:0 0 40px #ffc79b;">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="page-blue" id="page-blue">
+		<div class="container" id="container">
+			<div class="title" style="padding-bottom: 50px; padding-top: 100px;">
+				<span style="font-size: 36px; color: #1b4d6d">Наши контакты</span>
+			</div>
+			<div style="display: flex; flex-wrap:  wrap; ">
+			<div class="contacts" id="contacts" style="padding-bottom: 30px;">
+				<div class="info-block" id="info-block">
+					<ul style="display: flex; padding-bottom: 30px">
+						<li>
+							<img src="{{url_for('static', filename='img/icon-geo.png')}}" alt="" height="58px">
+						</li>
+						<li style="font-size: 24px; max-width: 500px; color: #1f1b1a; font-weight: 300;">
+							123060, г. Москва, ул. Маршала Вершинина, 
+							дом 8, корп. 2 (м. Октябрьское Поле)
+						</li>
+					</ul>
+				</div>
+				<div class="info-block" id="info-block">
+					<ul style="display: flex; padding-bottom: 5px">
+						<li>
+							<img src="{{url_for('static', filename='img/icon-phone.png')}}" alt="" height="58px">
+						</li>
+						<li style="font-size: 24px; max-width: 500px; color: #1f1b1a; font-weight: 300;">
+							тел. <a href="tel:74952271979" style="color: #1f1b1a">+7-495-227-1979</a>, <a style="color: #1f1b1a" href="tel:89852271979"> +7-985-227-19-79</a>
+						</li>
+					</ul>
+				</div>
+				<div class="info-block" id="info-block">
+					<ul style="display: flex; padding-bottom: 50px">
+						<li>
+							<img src="{{url_for('static', filename='img/icon-email.png')}}" alt="" height="58px">
+						</li>
+						<li style="font-size: 24px; max-width: 500px; color: #1f1b1a; font-weight: 300;">
+							e-mail:<a href="mailto:info@legalmania.ru" style="color: #1f1b1a">info@legalmania.ru</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="map" style="margin-left: auto;">
+				<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A125b374e00e2adc22ee3c1e15ddcc30f814b2a54cecfd4a5d31741bc442f3234&amp;source=constructor" width="400" height="250" frameborder="0"></iframe>
+			</div>
+			</div>
+			<span style="font-size: 32px; color: #1b4d6d; padding-top: 50px;">Оставить заявку</span>
+				<form action="/send" method="POST" class="btn-case" style="display: flex;padding-top: 20px; padding-bottom: 40px;">
+					<input type="text" placeholder="ФИО" name="name"  class="input-contact name" style="text-align: center; font-size: 14px; border: #d1d1d1;  z-index: ; box-shadow:0 0 35px #ffc79b;">
+					
+					<input type="tel" placeholder="Телефон" class="input-contact tel"  pattern="[0-9]{11}" name="tel" style="text-align: center; font-size: 14px; z-index: 2; border: #d1d1d1;" required>
+					<input class="question" type="text" placeholder="Ваш вопрос" class="input-contact question"  name="question" style="text-align: center; font-size: 14px; border:  none; box-shadow:0 0 35px #ffc79b; margin-right: 15px; z-index: 1; ">
+
+					<button class="btn-get-contact" value="submit" style="border: none;">Получить консультацию</button>
+				</form>
+				<style></style>
+		</div>
+	</section>
+{% endblock %}
+</body>
+</html>
